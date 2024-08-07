@@ -1,0 +1,42 @@
+.composition {
+    position: relative; // это  для абсолютного позиционироване картиок дальше (строка 8)
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        // пока они в ряд: дальше делаем правильое раположение друг на друге
+        position: absolute;
+        z-index: 10; // чтобы потом при :hover выводить картику вперед (строка 30)
+        transition: all 0.2s; // чтобы была анимация
+        outline-offset: 2rem; // отступ от рамки при :hover
+
+        
+        // выбираем картинки по одной чтобы задать им абсолютное позиционир-е относительно строки 2
+        &--p1 {
+            left: 0; // стоит на 0 слева контейнера
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0; // стоит ра 0 справа контейнра
+            top: 2rem; 
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+            outline: 1.5rem solid $color-primary; // рамка
+            transform: scale(1.05) translateY(-.5rem); // зум картинки + приподнимаем
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5); // зум тени 
+            z-index: 20; // картика поверх остальных (см стр 9)
+
+        }
+    }
+    // когда сделали ховер на композицию и выбрали все фотки на которые не сделан ховер (т.е. все остальные)
+    // composition:hover composotion__photo:not(:hover)
+    &:hover &__photo:not(:hover) {
+        transform: scale(.95); // уменьшаем
+    }
+}

@@ -1,0 +1,57 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .60);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem; // добавили побольше слева и за сдвига трансформом на стр 18
+    font-size: $default-font-size;
+    transform: skewX(-12deg); // погнули всё 
+    
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left; // чтобы круг был слева а тест обтекал справа
+        shape-outside: circle(50% at 50% 50%); // чтобы текст обтекал картинку по кругу
+        clip-path:  circle(50% at 50% 50%); // квадрат становится кругом
+        transform: translateX(-3rem) skewX(12deg);; // флоат элементы надо двигать так а не мардж/падингами + повернули обрато после стр 10
+        position: relative;
+    }
+
+    &__img {
+        height: 100%;  // надо дать 100проц родителя потому что она внутри фигуры
+        transform: translateX(-4rem) scale(1.4);
+        transition: all .5s;
+    }
+
+    &__text {
+        transform: skewX(12deg); // повернули текст обрато посл стр 10
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0; //вначале не видно
+        transition: all .5s;
+        backface-visibility: hidden; // чтобы было все гладенько в анимации когда имя выезжает
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(2px) brightness(80%);
+    }
+
+}
