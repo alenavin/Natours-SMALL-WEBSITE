@@ -1,0 +1,86 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 300;
+    opacity: 0; // спрятали попап но ссылки могут наводится и курсор будет меняться
+    visibility: hidden; // убрали все в тч ссылки 
+    transition: all .3s;
+
+    &:target { // когда нажимаешь на кнопку с целью, срабатывает попап потому что он id 
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1; // вернут строку к нормальному размеру ровно под Х чтобы он был в правильном месте а не ниже
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    &__content {
+        @include absCenter; // миксин для центрирования
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table; // чтобы сдедать лефт и райт ячейками таблицы и чтобы они были одной высоты
+        overflow: hidden; // чтобы картинка никуда не вылезала
+        transform: traslate(-50%, -50%) scale(.2);
+
+        opacity: 0;
+        transition: all .4s .1s; // задержка .1сек сначала появляется черный фон
+    }
+
+    &__left {
+        width: 33.3333%;
+        display: table-cell; // чтобы лефт и райт были одной высоты и друг за другом по диагонали
+    }
+    &__right {
+        width: 66.6667%;
+        display: table-cell;
+        vertical-align: middle; // контент ровно по середине ячейки/блока 
+        padding: 3rem 5rem;
+        
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        column-count: 2; // текст двумя колонками
+        column-gap: 4rem;
+        column-rule: 1px solid $color-grey-light-2; // палочка между столбиками 
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto; // переносы текста
+        
+    }
+}
