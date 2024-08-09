@@ -10,7 +10,7 @@
         to right bottom, 
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)), 
-    url(../img/nat-4.jpg);
+    url(/img/nat-4.jpg);
     background-size: cover;
     margin-top: -10rem; // чтобы после поворот белый треугольник стал серым 
 
@@ -43,7 +43,7 @@
     linear-gradient( 105deg, 
     rgba($color-white, .9) 0%, rgba($color-white, .9) 50%,
     transparent 50%),  // первые 50 процентов белый цвет 
-    url(../img/nat-10.jpg);
+    url(/img/nat-10.jpg);
 
     background-size: cover; // = 100% width
     border-radius: 3px;
