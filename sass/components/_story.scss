@@ -5,9 +5,21 @@
     background-color: rgba($color-white, .60);
     border-radius: 3px;
     padding: 6rem;
-    padding-left: 9rem; // добавили побольше слева и за сдвига трансформом на стр 18
+    padding-left: 9rem; // добавили побольше слева и за сдвига трансформом на стр 24
     font-size: $default-font-size;
     transform: skewX(-12deg); // погнули всё 
+
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+
+    }
+
+    @include respond(phone) {
+        transform: skewX(0); // перестали сгибать блок сторис
+        
+    }
     
 
     &__shape {
@@ -18,6 +30,10 @@
         clip-path:  circle(50% at 50% 50%); // квадрат становится кругом
         transform: translateX(-3rem) skewX(12deg);; // флоат элементы надо двигать так а не мардж/падингами + повернули обрато после стр 10
         position: relative;
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0); // перестали сгибать (лайн 31)
+        }
     }
 
     &__img {
@@ -28,6 +44,9 @@
 
     &__text {
         transform: skewX(12deg); // повернули текст обрато посл стр 10
+        @include respond(phone) {
+            transform: skewX(0) // переставли сгибать текст 
+        }
     }
 
     &__caption {

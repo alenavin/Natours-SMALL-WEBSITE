@@ -4,12 +4,18 @@
     backface-visibility: hidden;
     margin-bottom: 6rem;
 
+
     &--main {
         display: block;
         font-size: 6rem;
         font-weight: 400;
         letter-spacing: 3.5rem;
         animation: moveInLeft 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
     }
     
     &--sub {
@@ -20,6 +26,10 @@
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -34,6 +44,13 @@
     background-clip: 0; // не было в курсе, была подсказка сделать это св-во чтоб пропала желтая ошибка ? хз, сделала 0
     transition: all .2s;
     letter-spacing: 2px;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
     
 
     &:hover {
