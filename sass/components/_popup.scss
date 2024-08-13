@@ -56,18 +56,37 @@
     &__left {
         width: 33.3333%;
         display: table-cell; // чтобы лефт и райт были одной высоты и друг за другом по диагонали
+
+        @media (max-width: 1330px) {
+            vertical-align: middle;
+            padding: 0rem 3rem;
+        }
+
+        @include respond(tab-port) {
+            display: none;
+        }
+
+        
     }
     &__right {
         width: 66.6667%;
         display: table-cell;
         vertical-align: middle; // контент ровно по середине ячейки/блока 
         padding: 3rem 5rem;
+
+        @include respond(phone) {
+            width: 100%;
+            text-align: center;
+        }
         
     }
 
     &__img {
         display: block;
         width: 100%;
+        @include respond(tab-land) {
+            margin-top: 2rem;
+        }
     }
 
     &__text {
@@ -82,6 +101,10 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto; // переносы текста
+
+        @include respond(phone) {
+            column-count: 1;
+        }
         
     }
 }
