@@ -148,7 +148,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    @include respond(tab-port) {
+    //@include respond(tab-port) 
+    @media only screen and (max-width: 56.25em),
+        only screen and (hover: none),
+        only screen and (pointer: coarse) {// используем медиа-запрос когда устройство - плонш или меньше либо когда это сенсор (устройство без ховера)
+        
         height: auto;
         border-radius: 3px;
         background-color: $color-white;

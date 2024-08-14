@@ -14,7 +14,7 @@
         to right bottom, 
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)), 
-    url(/img/nat-4.jpg);
+    url(../img/nat-4.jpg);
 
     background-size: cover;
     margin-top: -10rem; // чтобы после поворот белый треугольник стал серым 
@@ -64,19 +64,19 @@
     linear-gradient( 105deg, 
     rgba($color-white, .9) 0%, rgba($color-white, .9) 50%,
     transparent 50%),  // первые 50 процентов белый цвет 
-    url(img/nat-10.jpg);
+    url(../img/nat-10.jpg);
 
     background-size: 100%; // = 100% width
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .25);
 
     @include respond(tab-land) {
-        background-image: linear-gradient( 105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 65%, transparent 65%), url(img/nat-10.jpg);
+        background-image: linear-gradient( 105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 65%, transparent 65%), url(../img/nat-10.jpg);
         background-size: cover;
     }
 
     @include respond(tab-port) {
-        background-image: linear-gradient( to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%), url(img/nat-10.jpg);
+        background-image: linear-gradient( to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%), url(../img/nat-10.jpg);
     }
 
     &__form {
