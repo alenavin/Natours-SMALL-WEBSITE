@@ -10,6 +10,12 @@
     visibility: hidden; // убрали все в тч ссылки 
     transition: all .3s;
 
+    @supports (backdrop-filter: blur(10px)) {
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .5);
+
+    }
+
     &:target { // когда нажимаешь на кнопку с целью, срабатывает попап потому что он id 
         opacity: 1;
         visibility: visible;
